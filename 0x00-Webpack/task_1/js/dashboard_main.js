@@ -2,19 +2,19 @@
 import $ from 'jquery';
 import _ from 'lodash';
 
-let count = 0;
-
-function updateCounter() {
-  count += 1;
-  $('#count').text(`${count} clicks on the button`);
-}
-
 $('body').append('<p>Holberton Dashboard</p>');
 $('body').append('<p>Dashboard data for the students</p>');
-
-const button = $('<button>Click here to get started</button>');
-button.on('click', _.debounce(updateCounter, 300));
-$('body').append(button);
-
+$('body').append('<button>Click here to get started</button>');
 $('body').append('<p id="count"></p>');
 $('body').append('<p>Copyright - Holberton School</p>');
+
+const updateCounter = () => {
+  let counts = $('#count').html() || 0;
+  $('button').on('click', () => {
+    counts += 1;
+    $('#count').html(`${counts} clicks on the button`);
+  });
+};
+
+_.debounce(updateCounter, 500);
+updateCounter();
