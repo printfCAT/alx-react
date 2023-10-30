@@ -44,6 +44,7 @@ module.exports = {
     ],
   },
   devServer: {
+    contentBase: './public',
     port: 8564,
   },
   plugins: [
