@@ -7,9 +7,9 @@ function App() {
     <><header className="App-header">
       <img src={logo} alt="logo" />
       <h1>School dashboard</h1>
-    </header><body className="App-body">
+    </header><div className="App-body">
         <p>Login to access the full dashboard</p>
-      </body><footer className="App-footer">
+      </div><footer className="App-footer">
         <p>{getFullYear()} {getFooterCopy(false)}</p>
       </footer></>
   );
