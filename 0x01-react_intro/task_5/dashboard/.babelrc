@@ -1,0 +1,7 @@
+{
+    "presets": [
+      "@babel/preset-env", // Add preset for modern JavaScript
+      "@babel/preset-react" // Add preset for React
+    ]
+  }
+  
