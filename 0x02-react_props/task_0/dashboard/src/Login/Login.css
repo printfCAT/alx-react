@@ -1,0 +1,26 @@
+.App-login {
+    min-height: 410px;
+    padding: 20px 50px;
+}
+
+  div {
+    font-family: Helvetica Neue, Open Sans, Helvetica, Arial, sans-serif;
+}
+
+div button {
+    border: 1px solid grey;
+    border-radius: 2px;
+    background-color: white;
+}
+  
+div .input-email,
+div .input-password {
+    border: 1px solid grey;
+}
+  
+div button,
+div .input-email,
+div .input-password,
+div .password {
+    margin-left: 1rem;
+}

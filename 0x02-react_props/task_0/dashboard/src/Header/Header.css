@@ -1,0 +1,21 @@
+.App-header {
+    border-bottom: 3px solid #E0354B;
+    display: flex;
+    align-items: center;
+}
+  
+.App-header h1 {
+    color: #E0354B;
+    margin-left: 20px;
+}
+  
+.App-header img {
+    width: 170px;
+    height: 150px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+header {
+    font-family: Helvetica Neue, Open Sans, Helvetica, Arial, sans-serif;
+}
