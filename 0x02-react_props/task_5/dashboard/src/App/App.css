@@ -1,0 +1,52 @@
+.App-header {
+  border-bottom: 3px solid #E0354B;
+  display: flex;
+  align-items: center;
+}
+
+.App-header h1 {
+  color: #E0354B;
+  margin-left: 20px;
+}
+
+.App-header img {
+  width: 170px;
+  height: 150px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+}
+
+.App-body {
+  min-height: 410px;
+  padding: 20px 50px;
+}
+
+header,
+div,
+footer {
+  font-family: Helvetica Neue, Open Sans, Helvetica, Arial, sans-serif;
+}
+
+.App-footer {
+  text-align: center;
+  font-style: italic;
+  border-top: 3px solid #E0354B;
+}
+
+div button {
+  border: 1px solid grey;
+  border-radius: 2px;
+  background-color: white;
+}
+
+div .input-email,
+div .input-password {
+  border: 1px solid grey;
+}
+
+div button,
+div .input-email,
+div .input-password,
+div .password {
+  margin-left: 1rem;
+}
