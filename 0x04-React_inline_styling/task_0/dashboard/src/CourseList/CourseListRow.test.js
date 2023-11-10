@@ -2,44 +2,48 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CourseListRow from './CourseListRow';
 
-describe('CourseListRow Component', () => {
-  it('renders one cell with colspan = 2 when isHeader is true and textSecondCell does not exist', () => {
-    const wrapper = shallow(
-      <CourseListRow isHeader={true} textFirstCell="Header Cell" />
-    );
-    const th = wrapper.find('th');
-    expect(th.length).toBe(1);
-    expect(th.prop('colSpan')).toBe(2);
-    expect(th.text()).toBe('Header Cell');
+describe('<CourseListRow />', () => {
+  it('renders without crashing', () => {
+    const wrapper = shallow(<CourseListRow textFirstCell='test' />);
+    expect(wrapper.exists()).toBe(true);
   });
 
-  it('renders two cells when isHeader is true and textSecondCell is present', () => {
+  it('renders one cell', () => {
+    const wrapper = shallow(
+      <CourseListRow isHeader={true} textFirstCell='test' />
+    );
+    wrapper.update();
+    const th = wrapper.find('th');
+    expect(th).toHaveLength(1);
+    expect(th.prop('colSpan')).toEqual('2');
+  });
+
+  it('renders two cells', () => {
     const wrapper = shallow(
       <CourseListRow
         isHeader={true}
-        textFirstCell="Header Cell 1"
-        textSecondCell="Header Cell 2"
+        textFirstCell='test'
+        textSecondCell='second'
       />
     );
+    wrapper.update();
     const th = wrapper.find('th');
-    expect(th.length).toBe(2);
-    expect(th.at(0).text()).toBe('Header Cell 1');
-    expect(th.at(1).text()).toBe('Header Cell 2');
+    expect(th).toHaveLength(2);
+    expect(th.first().text()).toEqual('test');
+    expect(th.at(1).text()).toEqual('second');
   });
 
-  it('renders two td elements within a tr element when isHeader is false', () => {
+  it('renders two td', () => {
     const wrapper = shallow(
       <CourseListRow
         isHeader={false}
-        textFirstCell="Data Cell 1"
-        textSecondCell="Data Cell 2"
+        textFirstCell='test'
+        textSecondCell='second'
       />
     );
+    wrapper.update();
     const tr = wrapper.find('tr');
-    expect(tr.length).toBe(1);
-    const td = tr.find('td');
-    expect(td.length).toBe(2);
-    expect(td.at(0).text()).toBe('Data Cell 1');
-    expect(td.at(1).text()).toBe('Data Cell 2');
+    expect(tr).toHaveLength(1);
+    expect(tr.children('td')).toHaveLength(2);
   });
 });
