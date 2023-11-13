@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
 });
 
-class Notifications extends Component {
+class Notifications extends React.Component {
     constructor(props) {
         super(props)
         this.markAsRead = this.markAsRead.bind(this);

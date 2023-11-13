@@ -34,7 +34,7 @@ const listNotifications = [
   { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
 ];
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogout = this.handleLogout.bind(this);
