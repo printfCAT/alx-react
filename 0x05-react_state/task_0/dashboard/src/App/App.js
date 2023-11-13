@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import Notifications from '../Notifications/Notifications.js';
 import Header from '../Header/Header.js';
 import Footer from '../Footer/Footer.js';

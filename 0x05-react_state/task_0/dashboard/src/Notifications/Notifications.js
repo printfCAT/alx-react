@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import close_button from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem.js';
 import PropTypes from 'prop-types';
