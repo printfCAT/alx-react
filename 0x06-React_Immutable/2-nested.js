@@ -1,4 +1,7 @@
 /* eslint-disable linebreak-style */
+import Map from 'immutable';
+
 export default function accessImmutableObject(object, array) {
-  return object.getIn(array);
+  const newObject = Map(object);
+  return newObject.getIn(array);
 }
