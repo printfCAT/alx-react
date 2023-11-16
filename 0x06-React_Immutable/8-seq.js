@@ -1,27 +1,22 @@
 /* eslint-disable linebreak-style */
 import { Seq } from 'immutable';
 
-export default function printBestStudents(object) {
-  const seq = Seq(object);
+export default function printBestStudents(grades) {
+  const result = Seq(grades)
+    .filter(({ score }) => score >= 70)
+    .map(({ firstName, lastName, ...rest }) => ({
+      ...rest,
+      firstName: firstName.charAt(0).toUpperCase() + firstName.slice(1),
+      lastName: lastName.charAt(0).toUpperCase() + lastName.slice(1),
+    }))
+    .toObject();
 
-  const belowSeventy = seq.filter(([key, value]) => [key === 'score', value < 70]);
-
-  const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-
-  belowSeventy.forEach((student) => {
-    const firstName = student.find(([key]) => key === 'firstName');
-    const lastName = student.find(([key]) => key === 'lastName');
-    if (firstName && lastName) {
-      const capitalFirst = capitalizeFirstLetter(firstName[1]);
-      const capitalLast = capitalizeFirstLetter(lastName[1]);
-      console.log(`${capitalFirst} ${capitalLast}`);
-    }
-  });
+  console.log(result);
 }
 
 const grades = {
   1: {
-    score: 55,
+    score: 99,
     firstName: 'guillaume',
     lastName: 'salva',
   },
