@@ -7,4 +7,5 @@ __Contains the following project directories:__
 * 0x05-react_state  
 * 0x06-React_Immutable  
 * 0x07-react_redux_action_creator_normalizr  
-* 0x08-react_redux_reducer_selector
+* 0x08-react_redux_reducer_selector  
+* 0x09-react_redux_connectors_and_providers
