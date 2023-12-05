@@ -25,6 +25,18 @@ const styles = StyleSheet.create({
   }
 })
 
+function displayNotificationDrawer() {
+  return {
+      type: "DISPLAY_NOTIFICATION_DRAWER",
+  }
+}
+
+function hideNotificationDrawer() {
+  return {
+      type: "HIDE_NOTIFICATION_DRAWER",
+  }
+}
+
 const listCourses = [
   { id: 1, name: "ES6", credit: 60 },
   { id: 2, name: "Webpack", credit: 20 },
@@ -41,6 +53,11 @@ export const mapStateToProps = (state) => {
     isLoggedIn: state.uiReducer.get('isUserLoggedIn'),
     displayDrawer: state.uiReducer.get('isNotificationDrawerVisible')
   }
+}
+
+const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer
 }
 
 class App extends React.Component {
@@ -105,13 +122,13 @@ class App extends React.Component {
 }
 
   render() {
-    const { displayDrawer } = this.props;
+    const { displayDrawer, displayNotificationDrawer, hideNotificationDrawer } = this.props;
     const { user, logOut, listNotifications } = this.state;
     const value = { user, logOut };
 
   return (
     <appContext.Provider value={value}>
-      <Notifications listNotifications={listNotifications} displayDrawer={displayDrawer} handleDisplayDrawer={this.handleDisplayDrawer} handleHideDrawer={this.handleHideDrawer} markNotificationAsRead={this.markNotificationAsRead} />
+      <Notifications listNotifications={listNotifications} displayDrawer={displayDrawer} handleDisplayDrawer={displayNotificationDrawer} handleHideDrawer={hideNotificationDrawer} markNotificationAsRead={this.markNotificationAsRead} />
       <Header />
       <div className={css(styles.header)}>
         {user.isLoggedIn ? 
@@ -135,4 +152,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
