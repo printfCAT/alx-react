@@ -11,6 +11,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { user } from './AppContext.js';
 import appContext from './AppContext.js';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
   body: {
@@ -64,8 +65,6 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogout = this.handleLogout.bind(this);
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
     this.logOut = this.logOut.bind(this);
     this.logIn = this.logIn.bind(this);
     this.markNotificationAsRead = this.markNotificationAsRead.bind(this);
@@ -75,14 +74,6 @@ class App extends React.Component {
       logOut: this.logOut,
       listNotifications: listNotifications
     };
-  }
-
-  handleDisplayDrawer() {
-    this.setState({ displayDrawer: true });
-  }
-
-  handleHideDrawer() {
-    this.setState({ displayDrawer: false });
   }
 
   componentDidMount() {
@@ -151,5 +142,19 @@ class App extends React.Component {
     );
   }
 }
+
+App.defaultProps = {
+  isLoggedIn: false,
+  displayDrawer: false,
+  displayNotificationDrawer: () => {},
+  hideNotificationDrawer: () => {},
+};
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool,
+  displayDrawer: PropTypes.bool,
+  displayNotificationDrawer: PropTypes.func,
+  hideNotificationDrawer: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
